@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/cadastro.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cadastro</title>
+    <script src="../script/cadastro.js"></script>
+  
+  </head>
+  <body>
+    <header class="header">
+      <a href="" class="logo">Japa impacta</a>
+      <ul class="menuOptions">
+        <li class="menuOption option-active">
+          <a href="/index.html">Home</a>
+        </li>
+        <li class="menuOption">
+          <a href="view/login.html">Entrar</a>
+        </li>
+      </ul>
+    </header> 
+    <form>
+    <label for="">Nome Completo</label>
+    <input type="text" id="Nome"/>
+
+    <label for="">CPF_CNPJ</label>
+    <input type="text" id="CPF/CNPJ"/>
+
+    <label for="">Data de nascimento</label>
+    <input type="date" id="Data de nascimento"/>
+
+    <label for="">Email</label>
+    <input type="text" id="Email"/>
+
+    <label for="">Senha</label>
+    <input type="password" id="Senha"/>
+
+    <label for="">Confirmar Senha</label>
+    <input type="password" id="Confirmar Senha"/>
+
+    <input type="checkbox" id="termos">
+    <label for="">Concorda com os termos?</label>
+    
+    <input type="button" value="Cadrastre-se" onclick="cadastrar()"/>
+    
+    
+    </form>
+  </body>
+</html>
