@@ -1,41 +1,51 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .header {
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 20px;
-    display: flex;
-    background: #fff;
-  }
-  
-  .logo {
-    justify-content: space-between;
-    font-family: 'Original Surfer', sans-serif;
-    font-weight: 400;
-    text-decoration: none;
-    color: #890808;
-    width: 355px;
-    line-height: 40px;
-    font-size: 50px;
-  }
-  
-  .menuOptions {
-    list-style: none;
-    display: flex;
-    gap: 60px;
-  }
-  
-  .menuOption a {
-    text-decoration: none;
-    color: #252B42;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-  }
-  
-  .option-active a {
-    color: #e36969;
-  }
-  *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px;
+  display: flex;
+  background: #fff;
+}
+
+.logo {
+  justify-content: space-between;
+  font-family: 'Original Surfer', sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  color: #890808;
+  width: 355px;
+  line-height: 40px;
+  font-size: 50px;
+}
+
+.menuOptions {
+  list-style: none;
+  display: flex;
+  gap: 60px;
+}
+
+.menuOption a {
+  text-decoration: none;
+  color: #252b42;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.option-active a {
+  color: #e36969;
+}
+
+form p {
+  display: none;
+  color: red;
+}
+
+form .field-error-active {
+  display: block;
+}
