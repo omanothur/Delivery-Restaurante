@@ -1,11 +1,38 @@
-function checkFields() {
-  let name = document.getElementById('name');
-  let cpf_cnpj = document.getElementById('cpf_cnpj');
-  let birthday = document.getElementById('birthday');
-  let email = document.getElementById('email');
-  let password = document.getElementById('password');
-  let confirm_password = document.getElementById('confirm_password');
+function resetFieldsErrors(
+  nameError,
+  cpf_cnpjError,
+  birthdayError,
+  emailError,
+  passwordError,
+  confirm_passwordError
+) {
+  nameError.classList.remove('field-error-active');
+  nameError.innerHTML = '';
 
+  cpf_cnpjError.classList.remove('field-error-active');
+  cpf_cnpjError.innerHTML = '';
+
+  birthdayError.classList.remove('field-error-active');
+  birthdayError.innerHTML = '';
+
+  emailError.classList.remove('field-error-active');
+  emailError.innerHTML = '';
+
+  passwordError.classList.remove('field-error-active');
+  passwordError.innerHTML = '';
+
+  confirm_passwordError.classList.remove('field-error-active');
+  confirm_passwordError.innerHTML = '';
+}
+
+function checkFields(
+  name,
+  cpf_cnpj,
+  birthday,
+  email,
+  password,
+  confirm_password
+) {
   let nameError = document.getElementById('nameError');
   let cpf_cnpjError = document.getElementById('cpf_cnpjError');
   let birthdayError = document.getElementById('birthdayError');
@@ -13,11 +40,19 @@ function checkFields() {
   let passwordError = document.getElementById('passwordError');
   let confirm_passwordError = document.getElementById('confirm_passwordError');
 
+  resetFieldsErrors(
+    nameError,
+    cpf_cnpjError,
+    birthdayError,
+    emailError,
+    passwordError,
+    confirm_passwordError
+  );
+
   let hasError = false;
 
   if (name.value === '') {
     hasError = true;
-    name.classList.add('error');
 
     nameError.innerHTML = 'Preencha o campo nome';
     nameError.classList.add('field-error-active');
@@ -25,7 +60,6 @@ function checkFields() {
 
   if (cpf_cnpj.value === '') {
     hasError = true;
-    cpf_cnpj.classList.add('error');
 
     cpf_cnpjError.innerHTML = 'Preencha o campo cpf/cnpj';
     cpf_cnpjError.classList.add('field-error-active');
@@ -33,7 +67,6 @@ function checkFields() {
 
   if (birthday.value === '') {
     hasError = true;
-    birthday.classList.add('error');
 
     birthdayError.innerHTML = 'Preencha o campo data de nascimento';
     birthdayError.classList.add('field-error-active');
@@ -41,7 +74,6 @@ function checkFields() {
 
   if (email.value === '') {
     hasError = true;
-    email.classList.add('error');
 
     emailError.innerHTML = 'Preencha o campo email';
     emailError.classList.add('field-error-active');
@@ -49,7 +81,6 @@ function checkFields() {
 
   if (password.value === '') {
     hasError = true;
-    password.classList.add('error');
 
     passwordError.innerHTML = 'Preencha o campo senha';
     passwordError.classList.add('field-error-active');
@@ -57,7 +88,6 @@ function checkFields() {
 
   if (confirm_password.value === '') {
     hasError = true;
-    confirm_password.classList.add('error');
 
     confirm_passwordError.innerHTML = 'Preencha o campo confirmar senha';
     confirm_passwordError.classList.add('field-error-active');
@@ -69,7 +99,6 @@ function checkFields() {
     confirm_password.value !== password.value
   ) {
     hasError = true;
-    confirm_password.classList.add('error');
 
     confirm_passwordError.innerHTML = 'Senhas diferentes';
     confirm_passwordError.classList.add('field-error-active');
@@ -79,35 +108,43 @@ function checkFields() {
 }
 
 async function cadastrar() {
-  const Url = 'https://go-wash-api.onrender.com/api/user';
-  let name = document.getElementById('name').value;
-  let cpf_cnpj = document.getElementById('cpf_cnpj').value;
-  let birthday = document.getElementById('birthday').value;
-  let email = document.getElementById('email').value;
-  let password = document.getElementById('password').value;
+  const url = 'https://go-wash-api.onrender.com/api/user';
+  let name = document.getElementById('name');
+  let cpf_cnpj = document.getElementById('cpf_cnpj');
+  let birthday = document.getElementById('birthday');
+  let email = document.getElementById('email');
+  let password = document.getElementById('password');
+  let confirm_password = document.getElementById('confirm_password');
   let terms = document.getElementById('termos').checked;
 
-  const fieldsErrors = checkFields();
+  const fieldsErrors = checkFields(
+    name,
+    cpf_cnpj,
+    birthday,
+    email,
+    password,
+    confirm_password
+  );
 
   if (fieldsErrors.hasError) {
     return;
   }
 
   let dados = {
-    name: name,
-    email: email,
+    name: name.value,
+    email: email.value,
     user_type_id: 1,
-    password: password,
-    cpf_cnpj: cpf_cnpj,
+    password: password.value,
+    cpf_cnpj: cpf_cnpj.value,
     terms: terms == true ? 1 : 0,
-    birthday: birthday,
+    birthday: birthday.value,
   };
 
   const headers = {
     'Content-Type': 'application/json',
   };
 
-  const requisicao = await fetch(Url, {
+  const requisicao = await fetch(url, {
     method: 'POST',
     headers: headers,
     body: JSON.stringify(dados),
@@ -124,12 +161,13 @@ async function cadastrar() {
     }
     const resposta = await requisicao.json();
 
-    if ('email' in resposta.data.errors) {
-      return alert(resposta.data.errors.email);
-    }
+    const errors = resposta.data.errors;
 
-    if ('cpf_cnpj' in resposta.data.errors) {
-      return alert(resposta.data.errors.cpf_cnpj);
+    if (errors === 'cpf_cnpj invalid') {
+      return alert('CPF/CNPJ inválido');
+    }
+    if ('email' in errors) {
+      return alert(resposta.data.errors.email);
     }
   }
 }
