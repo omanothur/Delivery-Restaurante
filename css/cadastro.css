@@ -6,7 +6,13 @@
     display: flex;
     background: #fff;
   }
-  
+  input, select{
+    margin: 8px 0;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+
+  }
   .logo {
     justify-content: space-between;
     font-family: 'Original Surfer', sans-serif;
@@ -38,4 +44,12 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+  }
+
+  .cadaster {
+    color: white;
+    border-color: #c9ae13;
+    background:#c9ae13;
+    border-radius: 10px;
+    
   }
