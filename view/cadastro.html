@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/cadastro.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/globalStyles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,7 +20,6 @@
     />
     <title>Cadastro</title>
     <script src="../script/cadastro.js"></script>
-  
   </head>
   <body>
     <header class="header">
@@ -31,35 +32,52 @@
           <a href="view/login.html">Entrar</a>
         </li>
       </ul>
-    </header> 
-    <form>
-    <label for="">Nome Completo</label>
-    <input type="text" id="name"/>
+    </header>
+    <div class="titleContainer">
+      <h3 class="title">Cadrastre-se</h3>
+    </div>
+    <main class="content">
+      <form class="form">
+        <div class="boxField">
+          <label for="">Nome Completo</label>
+          <input type="text" id="name" />
+        </div>
+        <div class="boxField">
+          <label for="">CPF_CNPJ</label>
+          <input type="text" id="cpf_cnpj" />
+        </div>
+        <div class="boxField">
+          <label for="">Data de nascimento</label>
+          <input type="date" id="birthday" />
+        </div>
+        <div class="boxField">
+          <label for="">Email</label>
+          <input type="email" id="email" />
+        </div>
+        <div class="boxField">
+          <label for="">Senha</label>
+          <input type="password" id="password" />
+        </div>
+        <div class="boxField">
+          <label for="">Confirmar Senha</label>
+          <input type="password" id="confirm_password" />
+        </div>
 
-    <label for="">CPF_CNPJ</label>
-    <input type="text" id="cpf_cnpj"/>
+        <div class="checkboxField">
+          <label for="">Concorda com os termos?</label>
+          <input type="checkbox" id="termos" />
+        </div>
 
-    <label for="">Data de nascimento</label>
-    <input type="date" id="birthday"/>
-
-
-    <label for="">Email</label>
-    <input type="email" id="email"/>
-
-    <label for="">Senha</label>
-    <input type="password" id="password"/>
-
-    <label for="">Confirmar Senha</label>
-    <input type="password" id="confirm_password"/>
-
-    
-    <label for="">Concorda com os termos?</label>
-    <input type="checkbox" id="termos">
-
-      
-
-    <input class="cadaster" type="button" value="Cadrastre-se" onclick="cadastrar()"/>
-    
-    </form>
+        <input
+          class="submitButton"
+          type="button"
+          value="Cadrastre-se"
+          onclick="cadastrar()"
+        />
+        <p class="accountExists">
+          Já possui uma conta? <a href="view/login.html">Entre</a>
+        </p>
+      </form>
+    </main>
   </body>
 </html>

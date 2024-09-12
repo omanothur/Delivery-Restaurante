@@ -1,55 +1,97 @@
-.header {
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 20px;
-    display: flex;
-    background: #fff;
-  }
-  input, select{
-    margin: 8px 0;
-    border-radius: 5px;
-    align-items: center;
-    justify-content: space-between;
+.titleContainer {
+  width: 100%;
+  background: #E3BD69;
+  padding-top: 80px;
+  height: 242px;
+}
 
-  }
-  .logo {
-    justify-content: space-between;
-    font-family: 'Original Surfer', sans-serif;
-    font-weight: 400;
-    text-decoration: none;
-    color: #890808;
-    width: 355px;
-    line-height: 40px;
-    font-size: 50px;
-  }
-  
-  .menuOptions {
-    list-style: none;
-    display: flex;
-    gap: 60px;
-  }
-  
-  .menuOption a {
-    text-decoration: none;
-    color: #252B42;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-  }
-  
-  .option-active a {
-    color: #e36969;
-  }
-  *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
+.title {
+  text-align: center;
+  font-size: 25px;
+  font-family: 'montserrat', sans-serif;
+  font-weight: 600;
+  color: white;
+}
 
-  .cadaster {
-    color: white;
-    border-color: #c9ae13;
-    background:#c9ae13;
-    border-radius: 10px;
-    
-  }
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  background: #fff;
+  width: 658px;
+  margin-top: -80px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(128, 118, 118, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.boxField {
+  display: flex;
+  flex-direction: column;
+}
+
+.boxField label {
+  font-size: 14px;
+  font-family: 'montserrat', sans-serif;
+  font-weight: 600;
+  color: #6F6F6F;
+}
+
+.boxField input {
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid #DDDDDD;
+  outline: none;
+  color: #6F6F6F;
+  padding: 20px;
+}
+
+.checkboxField {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkboxField label {
+  font-size: 14px;
+  font-family: 'montserrat', sans-serif;
+  font-weight: 600;
+  color: #6F6F6F;
+}
+
+.checkboxField input {
+  height: 15px;
+  width: 15px;
+  border-radius: 3px;
+  border: 1px solid #DDDDDD;
+
+}
+
+.accountExists {
+  font-size: 12px;
+  font-family: 'montserrat', sans-serif;
+  font-weight: 600;
+  color: #AEAEAE;
+}
+
+.accountExists a {
+  text-decoration: none;
+  color: #0E00CF;
+}
+
+.submitButton {
+  color: white;
+  background: #E3BD69;
+  border: none;
+  border-radius: 10px;
+  height: 42px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
