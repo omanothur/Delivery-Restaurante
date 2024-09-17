@@ -84,8 +84,7 @@
   text-decoration: none;
   color: #0E00CF;
 }
-
-.submitButton {
+.submitButton{
   color: white;
   background: #E3BD69;
   border: none;
@@ -96,12 +95,29 @@
   cursor: pointer;
 }
 
-.content-error input{
-  border-color: #ff3b25;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.submitButton:hover {
+  color: white;
+  background: #E3BD69;
+  border: none;
+  border-radius: 10px;
+  height: 42px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 2s ease;
+  transform: scale(1.1);
 }
-.form-content.error a{
-  border-color: #ff3b25;
+
+.submitButton:active{
+  background-color: darkkhaki;
+  transform: scale(0.8);
+}
+
+form p {
+  display: none;
+  color: red;
+}
+
+form .field-error-active {
+  display: block;
 }
