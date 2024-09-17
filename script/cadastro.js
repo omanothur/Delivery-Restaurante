@@ -39,7 +39,6 @@ function checkFields(
   let emailError = document.getElementById('emailError');
   let passwordError = document.getElementById('passwordError');
   let confirm_passwordError = document.getElementById('confirm_passwordError');
-}
 
 resetFieldsErrors(
   nameError,
@@ -53,43 +52,45 @@ resetFieldsErrors(
 let hasError = false;
 
 
-if(Nome.value === ""){
+if(name.value === ""){
   hasError = true;
   nameError.innerHTML = 'Preencha o campo nome';
   nameError.classList.add('field-error-active')
 }
 
-if(CPF_CNPJ.value === ""){
+if(cpf_cnpj.value === ""){
+  console.log("aqui")
   hasError = true;
-  nameError.innerHTML = 'Preencha o campo cpf/cnpj'
-  nameError.classList.add('field-error-active')
+  cpf_cnpjError.innerHTML = 'Preencha o campo cpf/cnpj'
+  cpf_cnpjError.classList.add('field-error-active')
 }
 
-if(Data_de_nascimento.value === ""){
+if(birthday.value === ""){
   hasError = true;
-  nameError.innerHTML = 'Preencha o campo data de nascimento'
-  nameError.classList.add('field-error-active')
+  birthdayError.innerHTML = 'Preencha o campo data de nascimento'
+  birthdayError.classList.add('field-error-active')
 }
 
-if(Email.value === ""){
+if(email.value === ""){
   hasError = true;
-  nameError.innerHTML = 'Preencha o campo e-mail'
-  nameError.classList.add('field-error-active')
+  emailError.innerHTML = 'Preencha o campo e-mail'
+  emailError.classList.add('field-error-active')
 }
 
 if(password.value === ''){
   hasError = true;
-  nameError.innerHTML = 'Preencha o campo senha'
-  nameError.classList.add('field-error-active')
+  passwordError.innerHTML = 'Preencha o campo senha'
+  passwordError.classList.add('field-error-active')
 }
 
 if (confirm_password.value === '') {
   hasError = true;
   confirm_passwordError.innerHTML = 'Preencha o campo confirmar senha';
   confirm_passwordError.classList.add('field-error-active');
+}
 
 if(
-  passowrd !== '' &&
+  password !== '' &&
   confirm_password.value !== '' &&
   confirm_password.value !== password.value
 ){
@@ -100,24 +101,38 @@ if(
 return {hasError};
 }
 
+
 async function cadastrar(){
   const Url = "https://go-wash-api.onrender.com/api/user"
-  let Nome = document.getElementById("name").value
-  let CPF_CNPJ = document.getElementById("cpf_cnpj").value
-  let Data_de_nascimento = document.getElementById("birthday").value
-  let Email = document.getElementById("email").value
-  let Senha = document.getElementById("password").value
-  let Confirmar_Senha = document.getElementById("confirm_password").value
+  let Nome = document.getElementById("name")
+  let CPF_CNPJ = document.getElementById("cpf_cnpj")
+  let Data_de_nascimento = document.getElementById("birthday")
+  let Email = document.getElementById("email")
+  let Senha = document.getElementById("password")
+  let Confirmar_Senha = document.getElementById("confirm_password")
   let terms = document.getElementById("termos").checked
 
+  const fieldErrors = checkFields(
+    Nome,
+    CPF_CNPJ,
+    Data_de_nascimento,
+    Email,
+    Senha,
+    Confirmar_Senha
+  )
+
+  if(fieldErrors.hasError){
+    return
+  }
+
   let dados = {
-    "name": Nome,
-    "email": Email,
+    "name": Nome.value,
+    "email": Email.value,
     "user_type_id": 1,
-    "password": Senha,
-    "cpf_cnpj": CPF_CNPJ,
+    "password": Senha.value,
+    "cpf_cnpj": CPF_CNPJ.value,
     "terms": terms == true ? 1 : 0,
-    "birthday": Data_de_nascimento
+    "birthday": Data_de_nascimento.value
   }
 
   const headers = {
