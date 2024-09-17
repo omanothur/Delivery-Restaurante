@@ -1,5 +1,4 @@
 async function cadastrar(){
-  console.log("aaa")
   const Url = "https://go-wash-api.onrender.com/api/user"
   let Nome = document.getElementById("name").value
   let CPF_CNPJ = document.getElementById("cpf_cnpj").value

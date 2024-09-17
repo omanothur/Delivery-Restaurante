@@ -95,3 +95,13 @@
   font-weight: 600;
   cursor: pointer;
 }
+
+.content-error input{
+  border-color: #ff3b25;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.form-content.error a{
+  border-color: #ff3b25;
+}
