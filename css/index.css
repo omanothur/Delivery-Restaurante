@@ -37,9 +37,12 @@
 
 .hero-image{
   width: 90vw;
-  height: 601px;
+  height: auto;
   margin: 0 auto;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-image img{
@@ -49,6 +52,10 @@
 
 .hero-image p{
   position: absolute;
+  text-align: center;
+  letter-spacing: -0.0em;
+  line-height: 1.5;
+  max-width: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -56,4 +63,46 @@
     font-size: 58px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
+}
+
+.highlight p{
+  bottom: 70px;
+  font-size: 28px;
+  margin-top: 100px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.highlight{
+  text-align: center;
+}
+
+.grid-highlight {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-item {
+  flex: 1 1 calc(50% - 20%);
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.grid-item img {
+  width: 30%;
+  height: auto;
+}
+
+.grid-item .text {
+  position: absolute;
+  bottom: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 65px;
+  font-family: 'Montserrat', sans-serif;
 }

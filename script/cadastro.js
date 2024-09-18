@@ -95,7 +95,7 @@ if(
   confirm_password.value !== password.value
 ){
   hasError = true;
-  confirm_passwordError.innerHTML = 'Senha diferentes';
+  confirm_passwordError.innerHTML = 'As senhas digitadas não coincidem';
   confirm_passwordError.classList.add('field-error-active')
 }
 return {hasError};
