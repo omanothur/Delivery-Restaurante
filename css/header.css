@@ -2,26 +2,20 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 20px;
+  padding: 20px 0;
   display: flex;
   background: #fff;
 }
-input,
-select {
-  margin: 8px 0;
-  border-radius: 5px;
-  align-items: center;
-  justify-content: space-between;
-}
+
 .logo {
   justify-content: space-between;
   font-family: 'Original Surfer', sans-serif;
   font-weight: 400;
   text-decoration: none;
-  color: #890808;
-  width: 355px;
+  color: #E36969;
+  width: 241px;
   line-height: 40px;
-  font-size: 50px;
+  font-size: 30px;
 }
 
 .menuOptions {
