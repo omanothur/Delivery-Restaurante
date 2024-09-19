@@ -153,13 +153,14 @@ async function cadastrar(){
     return alert("Erro ao realizar seu cadastro! Tente novamente mais tarde.")
     }
     const resposta = await requisicao.json();
-
-    if('email' in resposta.data.errors){
+    
+    if(resposta.data.errors && resposta.data.errors.email){
       return alert(resposta.data.errors.email)
-    }
-
-    if('cpf_cnpj' in resposta.data.errors){
+    } else if(resposta.data.errors && resposta.data.errors.cpf_cnpj){
       return alert(resposta.data.errors.cpf_cnpj)
+    } else {
+      return alert(resposta.data.errors)
     }
+  
   }
 }
