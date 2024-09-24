@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/login.css" />
+  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/globalStyles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <title>Cadastro</title>
+</head>
+
+<body>
+  <header class="header">
+    <a href class="logo">Japa impactante</a>
+    <ul class="menuOptions">
+      <li class="menuOption option-active">
+        <a href="../index.html">Home</a>
+      </li>
+    </ul>
+  </header>
+  <main class="content">
+    <img src="../img/japacama.png" alt="" class="japacama">
+    <form class="form">
+      <div class="form-header">
+        <p>Entre com sua conta</p>
+      </div>
+      <div class="form-container">
+        <div class="inline-fields">
+        </div>
+
+        <div class="boxField">
+          <label for>Email ou CPF/CNPJ</label>
+          <input type="text" id="email" />
+          <p class="error" id="emailError"></p>
+        </div>
+        <div class="boxField">
+            <label for>Senha</label>
+            <input type="password" id="password" />
+            <p class="error" id="passwordError"></p>
+          </div>
+
+        <input class="submitButton" type="button" value="Entrar" onclick="login()" />
+        <p class="accountExists">
+          Não possui uma conta? <a href="./cadastro.html">Cadastre-se</a>
+        </p>
+      </div>
+    </form>
+  </main>
+  <script src="../script/login.js"></script>
+</body>
+
+</html>
