@@ -24,6 +24,8 @@
       <li class="menuOption option-active">
         <a href="../index.html">Home</a>
       </li>
+      <li class="menuOption option-active">
+        <a href="./login.html">Login</a>
     </ul>
   </header>
   <main class="content">
@@ -73,7 +75,10 @@
           <input type="checkbox" id="termos" />
         </div>
 
-        <input class="submitButton" type="button" value="Cadrastre-se" onclick="cadastrar()" />
+        <button class="submitButton" id="submitButton" type="button" onclick="cadastrar() ">
+          <span id="submitText">Cadastrar</span>
+          <span class="loader" id="loader"></span>
+        </button>
         <p class="accountExists">
           Já possui uma conta? <a href="./login.html">Entre</a>
         </p>

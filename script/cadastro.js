@@ -38,7 +38,8 @@ function checkFields(
   let birthdayError = document.getElementById('birthdayError');
   let emailError = document.getElementById('emailError');
   let passwordError = document.getElementById('passwordError');
-  let confirm_passwordError = document.getElementById('confirm_passwordError');
+  let confirm_passwordError = document.getElementById('confirm_passwordError')
+  let submitButton = document.getElementById('submitButton');
 
 resetFieldsErrors(
   nameError,
@@ -139,11 +140,19 @@ async function cadastrar(){
     'Content-Type': 'application/json',
   };
 
+  loader.classList.add('show')
+  submitText.classList.add("invisible")
+  submitButton.disabled = true
+
   const requisicao = await fetch(Url, {
     method: 'POST',
     headers: headers,
     body: JSON.stringify(dados),
   });
+
+  loader.classList.remove('show')
+  submitText.classList.remove("invisible")
+  submitButton.disabled = false
 
   if(requisicao.ok){
     const resposta = await requisicao.json();
