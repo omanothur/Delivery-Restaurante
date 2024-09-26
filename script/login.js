@@ -26,8 +26,6 @@ function resetFieldsErrors(
   
   let hasError = false;
   
-
-  
   if(email.value === ""){
     hasError = true;
     emailError.innerHTML = 'Preencha o campo e-mail ou cpf/cnpj'
@@ -48,6 +46,9 @@ function resetFieldsErrors(
     const Url = "https://go-wash-api.onrender.com/api/login"
     let Email = document.getElementById("email")
     let Senha = document.getElementById("password")
+    let loader = document.getElementById("loader")
+    let submitText = document.getElementById("submitText")
+    let submitButton = document.getElementById('submitButton')
   
     const fieldErrors = checkFields(
       Email,
@@ -67,29 +68,33 @@ function resetFieldsErrors(
     const headers = {
       'Content-Type': 'application/json',
     };
+
+    loader.classList.add('show')
+    submitText.classList.add("invisible")
+    submitButton.disabled = true
   
     const requisicao = await fetch(Url, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify(dados),
     });
+
+    loader.classList.remove('show')
+    submitText.classList.remove("invisible")
+    submitButton.disabled = false
   
     if(requisicao.ok){
       const resposta = await requisicao.json();
-      alert(resposta.data)
+      alert(`Bem vindo, ${resposta.user.name}`)
+      localStorage.setItem('userData', JSON.stringify(resposta.user))
+      localStorage.setItem('token', JSON.stringify(resposta.access_token))
+      
     }else{
       if(requisicao.status===500){
-      return alert("Erro ao realizar seu cadastro! Tente novamente mais tarde.")
+      return alert("Erro ao realizar seu login! Tente novamente mais tarde.")
       }
-      const resposta = await requisicao.json();
-      
-      if(resposta.data.errors && resposta.data.errors.email){
-        return alert(resposta.data.errors.email)
-      } else if(resposta.data.errors && resposta.data.errors.cpf_cnpj){
-        return alert(resposta.data.errors.cpf_cnpj)
-      } else {
-        return alert(resposta.data.errors)
-      }
-    
+
+      const resposta = await requisicao.json();   
+      return alert(resposta.data.errors)
     }
   }

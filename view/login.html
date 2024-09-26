@@ -47,7 +47,10 @@
             <p class="error" id="passwordError"></p>
           </div>
 
-        <input class="submitButton" type="button" value="Entrar" onclick="login()" />
+        <button class="submitButton" id="submitButton" type="button" onclick="login()" >
+          <span id="submitText">Entrar</span>
+          <span class="loader" id="loader"></span>
+        </button>
         <p class="accountExists">
           Não possui uma conta? <a href="./cadastro.html">Cadastre-se</a>
         </p>
