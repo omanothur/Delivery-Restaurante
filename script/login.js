@@ -85,9 +85,9 @@ function resetFieldsErrors(
   
     if(requisicao.ok){
       const resposta = await requisicao.json();
-      alert(`Bem vindo, ${resposta.user.name}`)
       localStorage.setItem('userData', JSON.stringify(resposta.user))
       localStorage.setItem('token', JSON.stringify(resposta.access_token))
+      window.location.href = 'home.html';
       
     }else{
       if(requisicao.status===500){
