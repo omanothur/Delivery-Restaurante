@@ -1,3 +1,15 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+}
+
+
+
 .title {
     text-align: center;
     font-size: 25px;
@@ -12,6 +24,7 @@
     justify-content: space-between;
     align-items: center;
     height: 100vh;
+    margin-top: 60px
   }
   
   .form-container{
@@ -40,10 +53,19 @@
   
   .form {
     background: #fff;
+    margin-left: 380px;
     width: 658px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(128, 118, 118, 0.25);
+    height: calc(100vh - 245px)
   }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: #555;
+    margin: 20px 0; /* Adiciona espaçamento acima e abaixo da linha */
+}
 
   .inline-fields{
     display: flex;
@@ -72,6 +94,10 @@
     color: #6F6F6F;
     padding: 20px;
   }
+
+  .cep-input {
+    width: 282px;
+  }
   
 
 li {
@@ -84,3 +110,23 @@ li:active {
     transition: 0.5s ease;
 }
 
+.submitButton{
+  color: white;
+  background: #E36969;
+  border: none;
+  border-radius: 10px;
+  height: 42px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  transition: 0.5s ease;
+  transform: scale(1.01);
+}
+
+.submitButton:active{
+  transform: scale(0.95);
+  transition: 0.5s ease;
+}
