@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet" />
+  <script src="../script/home.js"></script>
   <title>Home</title>
 </head>
 
@@ -35,63 +36,44 @@
     <header class="header">
       <a href="../index.html" class="logo">Japa impactante</a>
     </header>
-  <form class="form">
-    <div class="form-header">
-      <p>Cadastre um endereço</p>
-    </div>
-    <div class="form-container">
-      <div class="boxField">
-        <label for>Nome do endereço</label>
-        <input type="text" id="name" />
-        <p class="error" id="enderecoError"></p>
+    <form class="form">
+      <div class="form-header">
+        <p>Cadastre um endereço</p>
       </div>
-      <hr>
-      <div class="boxField">
-        <label for>Cep</label>
-        <input type="number" id="cep" class="cep-input" />
-        <p class="error" id="cepError"></p>
-      </div>
-      <div class="boxField">
-        <label for>Endereço</label>
-        <input type="text" id="endereco" />
-        <p class="error" id="enderecoError"></p>
-      </div>
-      <div class="boxField">
-        <label for>Bairro</label>
-        <input type="text" id="bairro" />
-        <p class="error" id="bairroError"></p>
-      </div>
-      <div class="inline-fields">
+      <div class="form-container">
         <div class="boxField">
-          <label for>Número</label>
-          <input type="number" id="numero" />
-          <p class="error" id="numeroError"></p>
+          <label for>Nome do endereço</label>
+          <input type="text" id="name" />
+          <p class="error" id="enderecoError"></p>
+        </div>
+        <hr>
+        <div class="boxField">
+          <label for>Cep</label>
+          <input type="text" id="cep" class="cep-input" />
+          <p class="error" id="cepError"></p>
         </div>
         <div class="boxField">
-          <label for>Complemento</label>
-          <input type="text" id="complemento" />
+          <label for>Endereço</label>
+          <input type="text" id="endereco" />
+          <p class="error" id="enderecoError"></p>
         </div>
+        <div class="inline-fields">
+          <div class="boxField">
+            <label for>Número</label>
+            <input type="number" id="numero" />
+            <p class="error" id="numeroError"></p>
+          </div>
+          <div class="boxField">
+            <label for>Complemento</label>
+            <input type="text" id="complemento" />
+          </div>
+        </div>
+        <button class="submitButton" id="submitButton" type="button" onclick="cadastrar_endereco() ">
+          <span id="submitText">Cadastrar</span>
+          <span class="loader" id="loader"></span>
+        </button>
       </div>
-      <div class="inline-fields">
-        <div class="boxField">
-          <label for>Estado</label>
-          <input type="text" id="estado" />
-          <p class="error" id="estadoError"></p>
-        </div>
-        <div class="boxField">
-          <label for>Cidade</label>
-          <input type="text" id="cidade" />
-          <p class="error" id="cidadeError"></p>
-        </div>
-      </div>
-
-      <button class="submitButton" id="submitButton" type="button" onclick="cadastrar_endereco() ">
-        <span id="submitText">Cadastrar</span>
-        <span class="loader" id="loader"></span>
-      </button>
-    </div>
-    
-    <script src="../script/home.js"></script>
+    </form>
   </main>
 </body>
 

@@ -21,16 +21,16 @@ body {
   .content {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
-    margin-top: 60px
+    height: 100%;
+    margin-left: 85px;
+
   }
   
   .form-container{
     justify-content: center;
     background: #fff;
-    width: 658px;
     padding: 40px;
     box-shadow: 0 0 10px rgba(128, 118, 118, 0.25);
     display: flex;
@@ -53,17 +53,15 @@ body {
   
   .form {
     background: #fff;
-    margin-left: 380px;
     width: 658px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(128, 118, 118, 0.25);
-    height: calc(100vh - 245px)
   }
 
   hr {
     border: 0;
     height: 1px;
-    background: #555;
+    background: #b9b6b6;
     margin: 20px 0; /* Adiciona espaçamento acima e abaixo da linha */
 }
 

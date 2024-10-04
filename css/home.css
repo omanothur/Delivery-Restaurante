@@ -12,10 +12,6 @@ body {
     display: flex;
 }
 
-.header .logo {
-    margin-left: 130px;
-  }
-
 .sidebar {
     width: 85px;
     background-color: #E36969;
