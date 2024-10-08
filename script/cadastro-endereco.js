@@ -123,3 +123,8 @@ async function cadastrar_endereco() {
     }
   }
 }
+
+function showForm() {
+  const form = document.getElementById('myForm');
+  form.classList.add('show');
+}
