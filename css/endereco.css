@@ -1,34 +1,47 @@
 details {
     user-select: none;
     border-radius: 10px;
-    background-color:#dedbdb;
-    padding: 10px;
+    background-color:#ffffff;
+    padding: 15px;
+    box-shadow: 0px 5px 5px #0000001A;
+    border: 1px solid #E5E5E5;
+    width: 100%;
   }
   
   summary {
     display: flex;
     cursor: pointer;
-    justify-content: space-between;
-    padding: 15px;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
   }
   
-.list-header { width: 100%;
+.list-header {
+     width: 100%;
     background-color: #E36969;
     border-radius: 10px;
     text-align: center;
-    color: #fff;
     padding: 15px;
-    font-family: "Montserrat";
-    font-size: 16px;
+}
+
+.list-header > h3{
+font-size: 16px;
+font-family: "Montserrat";
+color: #fff;
+font-weight: 600;
 }
 
 .more_address_infos {
     display: flex;
-    gap: 20px;
+    cursor: pointer;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
 }
 
 .container {
-    width: 1000px;
+    max-width: 1000px;
+    width: 100%;
     margin-top: 100px;
 }
 .space-svg {
@@ -36,3 +49,17 @@ details {
     gap: 15px;
 }
 
+.space-svg > button{
+    outline: none;
+    border-color: #ffffff;
+   
+}
+
+.list_address{
+    list-style: none;
+}
+
+.list_address li {
+    width: 100%;
+    margin-top: 10px;
+}
