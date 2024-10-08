@@ -1,0 +1,38 @@
+details {
+    user-select: none;
+    border-radius: 10px;
+    background-color:#dedbdb;
+    padding: 10px;
+  }
+  
+  summary {
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    padding: 15px;
+  }
+  
+.list-header { width: 100%;
+    background-color: #E36969;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    padding: 15px;
+    font-family: "Montserrat";
+    font-size: 16px;
+}
+
+.more_address_infos {
+    display: flex;
+    gap: 20px;
+}
+
+.container {
+    width: 1000px;
+    margin-top: 100px;
+}
+.space-svg {
+    display: flex;
+    gap: 15px;
+}
+
