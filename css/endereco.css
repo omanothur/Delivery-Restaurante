@@ -51,8 +51,8 @@ font-weight: 600;
 
 .space-svg > button{
     outline: none;
-    border-color: #ffffff;
-   
+    border: none;
+    background-color: #ffffff;
 }
 
 .list_address{
