@@ -37,6 +37,7 @@ font-weight: 600;
     justify-content: space-between;
     width: 100%;
     align-items: center;
+    font-family: "Montserrat";
 }
 
 .container {
@@ -62,4 +63,18 @@ font-weight: 600;
 .list_address li {
     width: 100%;
     margin-top: 10px;
+}
+
+details[open] summary .setinha {
+    transform: rotate(180deg);
+  }
+
+.address_plus{
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    width: 103%;
+    align-items: center;
+    padding: 12px 23px;
+    font-family: "Montserrat";
 }
