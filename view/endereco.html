@@ -21,7 +21,7 @@
     <title>Lista de Endereço</title>
 </head>
 
-<body>
+<body onload="carrregar_enderecos()" onload="criar_card_endereco(endereco)">
     <div class="sidebar">
         <ul>
             <li href="#">
@@ -45,6 +45,7 @@
                 <h3>
                     Endereços Salvos
                 </h3>
+                <div id="spinner" class="spinner"></div>
             </div>
             <ul class="list_address">  
             </ul>

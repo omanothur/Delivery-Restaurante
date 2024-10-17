@@ -22,6 +22,8 @@ details {
     border-radius: 10px;
     text-align: center;
     padding: 15px;
+    display: flex;
+    justify-content: center;
 }
 
 .list-header > h3{
@@ -78,3 +80,22 @@ details[open] summary .setinha {
     padding: 12px 23px;
     font-family: "Montserrat";
 }
+
+.spinner {
+    display: none;
+    border: 16px solid #f3f3f342;
+    border-top: 16px solid #E36969;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+} 

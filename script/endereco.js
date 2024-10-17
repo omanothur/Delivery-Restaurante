@@ -1,17 +1,17 @@
 function criar_card_endereco(endereco) {
     return `
-        <li>
+        <li class="list-item">
             <details>
                 <summary>
                     <img src="../img/setinha_listagem.svg" alt="" class="setinha">
                     <div class="more_address_infos">
                         <div>
                             <b>Titulo:</b>
-                            <span>${endereco.title || ''}</span>
+                            <span>${endereco.title || 'N/A'}</span>
                         </div>
                         <div>
                             <b>Endereço:</b>
-                            <span>${endereco.address || ''}</span>
+                            <span>${endereco.address || 'N/A'}</span>
                         </div>
                         <div class="space-svg">
                             <button>
@@ -26,15 +26,15 @@ function criar_card_endereco(endereco) {
                 <div class="address_plus">
                     <div>
                         <b>CEP:</b>
-                        <span>${endereco.cep || ''}</span>
+                        <span>${endereco.cep || 'N/A'}</span>
                     </div>
                     <div>
                         <b>Numero:</b>
-                        <span>${endereco.number || ''}</span>
+                        <span>${endereco.number || 'N/A'}</span>
                     </div>
                     <div>
                         <b>Complemento:</b>
-                        <span>${endereco.complement || ''}</span>
+                        <span>${endereco.complement || 'N/A'}</span>
                     </div>
                 </div>
             </details>
@@ -47,6 +47,7 @@ async function carrregar_enderecos() {
     
     try {
         console.log('Iniciando chamada à API...');
+        spinner.style.display = 'block'
         
         const resposta = await fetch("https://go-wash-api.onrender.com/api/auth/address", {
             headers: {
@@ -74,7 +75,10 @@ async function carrregar_enderecos() {
     } catch (error) {
         console.error('Erro completo:', error);
         list_address.innerHTML = `<div class="Error">Erro ao carregar endereços: ${error.message}</div>`;
+    } finally {
+        spinner.style.display = 'none';
     }
+    
 }
 
 document.addEventListener("DOMContentLoaded", carrregar_enderecos);
