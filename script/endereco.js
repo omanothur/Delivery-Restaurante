@@ -1,6 +1,8 @@
 function criar_card_endereco(endereco) {
-    return `
-        <li class="list-item">
+  const linhaNovoItem = document.createElement('li');
+  linhaNovoItem.classList.add('list-item');
+
+  linhaNovoItem.innerHTML = `
             <details>
                 <summary>
                     <img src="../img/setinha_listagem.svg" alt="" class="setinha">
@@ -13,7 +15,7 @@ function criar_card_endereco(endereco) {
                             <b>Endereço:</b>
                             <span>${endereco.address || 'N/A'}</span>
                         </div>
-                        <div class="space-svg">
+                        <div class="buttons-container">
                             <button>
                                 <img src="../img/lixo.svg" alt="">
                             </button>
@@ -38,47 +40,46 @@ function criar_card_endereco(endereco) {
                     </div>
                 </div>
             </details>
-        </li>
     `;
+
+  linhaNovoItem.dataset.id = endereco.id;
+
+  return linhaNovoItem;
 }
 
 async function carrregar_enderecos() {
-    const list_address = document.querySelector(".list_address");
-    
-    try {
-        console.log('Iniciando chamada à API...');
-        spinner.style.display = 'block'
-        
-        const resposta = await fetch("https://go-wash-api.onrender.com/api/auth/address", {
-            headers: {
-                "Authorization": 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYXBpLWdvLXdhc2gtZWZjOWM5NTgyNjg3Lmhlcm9rdWFwcC5jb20vYXBpL2xvZ2luIiwiaWF0IjoxNzEwNDE3MjIyLCJuYmYiOjE3MTA0MTcyMjIsImp0aSI6InBsZll0aENEZ0U1NUNzMHEiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.z1pdEBkx8Hq01B7jNKa42NGxtFFHwb-7O_0y8krVWUY',
-                "Cookie": 'gowash_session=0hGqRHf0q38ETNgEcJGce30LcPtuPKo48uKtb7Oj'
-            }
-        });
+  const list_address = document.querySelector('.list_address');
 
-        if (!resposta.ok) {
-            console.error('Resposta não ok:', resposta.status, resposta.statusText);
-            throw new Error(`Erro ao carregar endereços: ${resposta.status}`);
-        }
-        const resultado  = await resposta.json();
-        const enderecos = resultado.data
-        console.log('Dados recebidos da API:', enderecos);
-        
-        let addressesHTML = '';
+  try {
+    console.log('Iniciando chamada à API...');
+    spinner.style.display = 'block';
+    const token = JSON.parse(localStorage.getItem('token'));
+    const resposta = await fetch(
+      'https://go-wash-api.onrender.com/api/auth/address',
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
-        for (const endereco of enderecos) {
-            addressesHTML += criar_card_endereco(endereco);
-        }
-
-        list_address.innerHTML = addressesHTML;
-
-    } catch (error) {
-        console.error('Erro completo:', error);
-        list_address.innerHTML = `<div class="Error">Erro ao carregar endereços: ${error.message}</div>`;
-    } finally {
-        spinner.style.display = 'none';
+    if (!resposta.ok) {
+      console.error('Resposta não ok:', resposta.status, resposta.statusText);
+      throw new Error(`Erro ao carregar endereços: ${resposta.status}`);
     }
-    
+    const resultado = await resposta.json();
+    const enderecos = resultado.data;
+    console.log('Dados recebidos da API:', enderecos);
+
+    for (const endereco of enderecos) {
+      list_address.appendChild(criar_card_endereco(endereco));
+    }
+  } catch (error) {
+    console.error('Erro completo:', error);
+    list_address.innerHTML = `<div class="Error">Erro ao carregar endereços: ${error.message}</div>`;
+  } finally {
+    spinner.style.display = 'none';
+  }
 }
 
-document.addEventListener("DOMContentLoaded", carrregar_enderecos);
+carrregar_enderecos();

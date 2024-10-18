@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/cadastro-endereco.css" />
@@ -9,48 +8,53 @@
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/endereco.css" />
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap"
+      rel="stylesheet"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <script src="../script/cadastro-endereco.js"></script>
     <title>Lista de Endereço</title>
-</head>
+  </head>
 
-<body onload="carrregar_enderecos()" onload="criar_card_endereco(endereco)">
+  <body>
     <div class="sidebar">
-        <ul>
-            <li href="#">
-                <a href="./home.html">
-                    <img src="../img/list.svg" alt="" class="list-sidebar">
-                </a>
-            </li>
-            <li href="#">
-                <a href="./cadastro-endereco.html">
-                    <img src="../img/create_address.svg" alt="" class="create-address">
-                </a>
-            </li>
-        </ul>
+      <ul>
+        <li href="#">
+          <a href="./home.html">
+            <img src="../img/list.svg" alt="" class="list-sidebar" />
+          </a>
+        </li>
+        <li href="#">
+          <a href="./cadastro-endereco.html">
+            <img
+              src="../img/create_address.svg"
+              alt=""
+              class="create-address"
+            />
+          </a>
+        </li>
+      </ul>
     </div>
     <main class="content">
-        <header class="header">
-            <a href="../index.html" class="logo">Japa impactante</a>
-        </header>
-        <div class="container">
-            <div class="list-header">
-                <h3>
-                    Endereços Salvos
-                </h3>
-                <div id="spinner" class="spinner"></div>
-            </div>
-            <ul class="list_address">  
-            </ul>
+      <header class="header">
+        <a href="../index.html" class="logo">Japa impactante</a>
+      </header>
+      <div class="container">
+        <div class="list-header">
+          <h3>Endereços Salvos</h3>
+          <div id="spinner" class="spinner"></div>
         </div>
+        <ul class="list_address"></ul>
+      </div>
     </main>
     <script src="../script/endereco.js"></script>
-</body>
+  </body>
 </html>
