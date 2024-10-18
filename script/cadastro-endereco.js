@@ -1,3 +1,15 @@
+function verification_login(){
+  if('token' in localStorage){
+      let status = true
+      const form = document.getElementById('myForm');
+      form.classList.add('show');
+    }else{
+      let status = false
+      window.location.href = "./login.html"
+  }
+}
+
+
 function resetFieldsErrors(
   cepError,
   enderecoError,
@@ -122,9 +134,4 @@ async function cadastrar_endereco() {
       return alert("Erro ao realizar seu cadastro! Tente novamente mais tarde.")
     }
   }
-}
-
-function showForm() {
-  const form = document.getElementById('myForm');
-  form.classList.add('show');
 }

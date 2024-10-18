@@ -1,3 +1,13 @@
+
+function verification_login(){
+    if('token' in localStorage){
+        let status = true
+    }else{
+        let status = false
+        window.location.href = "./login.html"
+    }
+}
+
 function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("userData");
