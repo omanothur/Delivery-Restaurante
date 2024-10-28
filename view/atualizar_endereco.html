@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../css/cadastro-endereco.css" />
+  <link rel="stylesheet" href="../css/atualizar_endereco.css" />
   <link rel="stylesheet" href="../css/home.css" />
   <link rel="stylesheet" href="../css/header.css" />
 
@@ -15,11 +15,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet" />
-  <script src="../script/cadastro-endereco.js"></script>
-  <title>Cadastrar Endereço</title>
+   <title>Atualizar Endereço</title>
 </head>
 
-<body onload="verification_login()" onload="showForm()">
+<body onload="verification_login()">
   <div class="sidebar">
     <ul>
       <li href="#">
@@ -40,7 +39,7 @@
     </header>
     <form class="form" id="myForm">
       <div class="form-header">
-        <p>Cadastre um endereço</p>
+        <p>Atualize o endereço</p>
       </div>
       <div class="form-container">
         <div class="boxField">
@@ -70,13 +69,15 @@
             <input type="text" id="complemento" />
           </div>
         </div>
-        <button class="submitButton" id="submitButton" type="button" onclick="cadastrar_endereco()">
-          <span id="submitText">Cadastrar</span>
+        <button class="submitButton" id="submitButton" type="button" onclick="atualizar_endereco()">
+          <span id="submitText">Atualizar</span>
           <span class="loader" id="loader"></span>
         </button>
       </div>
     </form>
   </main>
 </body>
+<script src="../script/atualizar_endereco.js"></script>
+
 
 </html>
