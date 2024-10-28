@@ -29,8 +29,8 @@ function criar_card_endereco(endereco) {
                             <button>
                                 <img src="../img/lixo.svg" alt="">
                             </button>
-                            <button>
-                                <img src="../img/edit.svg" alt="">
+                            <button onclick="redirecionar_para_atualizacao(${endereco.id})">
+                                <img src="../img/edit.svg" alt="">                          
                             </button>
                         </div>
                     </div>
@@ -52,12 +52,10 @@ function criar_card_endereco(endereco) {
             </details>
     `;
 
-  linhaNovoItem.dataset.id = endereco.id;
-
   return linhaNovoItem;
 }
 
-async function carrregar_enderecos() {
+async function carregar_enderecos() {
   const list_address = document.querySelector('.list_address');
 
   try {
@@ -92,4 +90,9 @@ async function carrregar_enderecos() {
   }
 }
 
-carrregar_enderecos();
+carregar_enderecos();
+function redirecionar_para_atualizacao(id_endereco){
+  const IDendereco = `../view/atualizar_endereco.html?id_endereco=${id_endereco}`
+  console.log(IDendereco)
+  window.location.href = `../view/atualizar_endereco.html?id_endereco=${id_endereco}`;
+}
