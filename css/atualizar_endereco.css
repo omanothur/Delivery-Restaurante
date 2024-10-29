@@ -54,13 +54,13 @@ body {
   width: 658px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(128, 118, 118, 0.25);
-  opacity: 0;
   transform: translateY(20px);
-  transition: opacity 1s ease, transform
+  transition: opacity 1s ease, transform;
+  display: none;
 }
 
 .form.show {
-  opacity: 1;
+  display: block;
   transform: translateY(0);
 }
 
@@ -183,4 +183,28 @@ form .field-error-active {
 .submitButton:disabled {
   cursor: not-allowed;
   opacity: 0.7;
+}
+
+.spinner {
+  display: none;
+  border: 16px solid #f3f3f342;
+  border-top: 16px solid #E36969;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
 }

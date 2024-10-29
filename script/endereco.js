@@ -96,12 +96,7 @@ async function carregar_enderecos() {
 carregar_enderecos();
 
 function redirecionar_para_atualizacao(id_endereco) {
-  const url = new URL(
-    '../view/atualizar_endereco.html',
-    window.location.origin
-  );
-  const params = new URLSearchParams(url.search);
-  params.append('id_endereco', id_endereco);
-  url.search = params.toString();
+  const url = `../view/atualizar_endereco.html?id_endereco=${id_endereco}`
+
   window.location.href = url;
 }

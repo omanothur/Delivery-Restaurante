@@ -10,8 +10,9 @@ const id_endereco = new URLSearchParams(window.location.search).get(
 
 async function carregarDadosEndereco() {
   const Url = `https://go-wash-api.onrender.com/api/auth/address/${id_endereco}`;
+  spinner.style.display = 'block';
+  const form = document.getElementById('myForm');
   const token = JSON.parse(localStorage.getItem('token'));
-  console.log(window.location.search);
   try {
     const resposta = await fetch(Url, {
       headers: {
@@ -19,20 +20,20 @@ async function carregarDadosEndereco() {
         Authorization: `Bearer ${token}`,
       },
     });
-
     if (resposta.ok) {
-      const { data } = await resposta.json();
-
+      const {data} = await resposta.json();
       document.getElementById('name').value = data.title;
       document.getElementById('cep').value = data.cep;
       document.getElementById('endereco').value = data.address;
       document.getElementById('numero').value = data.number;
       document.getElementById('complemento').value = data.complement || '';
+  form.classList.add('show');
+
     } else {
       alert('Erro ao carregar os dados:', resposta.statusText);
     }
-  } catch (error) {
-    alert('Erro:', error);
+  } finally {
+    spinner.style.display = 'none';
   }
 }
 
@@ -90,8 +91,7 @@ async function atualizar_endereco() {
 function verification_login() {
   if ('token' in localStorage) {
     let status = true;
-    const form = document.getElementById('myForm');
-    form.classList.add('show');
+
   } else {
     let status = false;
     window.location.href = './login.html';
