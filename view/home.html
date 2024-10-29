@@ -1,52 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Home</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../css/home.css" />
-  <link rel="stylesheet" href="../css/header.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
-  <title>Home</title>
-</head>
-
-<body onload="verification_login(status)">
-  <div class="sidebar">
-    <ul>
-      <li>
-        <a href="./endereco.html">
-          <img src="../img/list.svg" alt="" class="list-sidebar">
-        </a>
-      </li>
-      <li>
-        <a href="./cadastro-endereco.html">
-          <img src="../img/create_address.svg" alt="" class="create-address">
-        </a>
-      </li>
-      <li class="logout-item">
-        <a href="#">
-          <img src="../img/logout.svg" alt="" class="logout" onclick="logout()">
-        </a>
-      </li>
-    </ul>
-  </div>
-  <main class="content">
-    <header class="header">
-      <a href="../index.html" class="logo">Japa impactante</a>
-      <ul class="username">
-        <li class="username option-active">
-          <a id="username-display"></a>
+  <body onload="verification_login(status)">
+    <div class="sidebar">
+      <div></div>
+      <ul>
+        <li>
+          <a href="./endereco.html">
+            <img src="../img/list.svg" alt="" class="list-sidebar" />
+          </a>
+        </li>
+        <li>
+          <a href="./cadastro-endereco.html">
+            <img
+              src="../img/create_address.svg"
+              alt=""
+              class="create-address"
+            />
+          </a>
         </li>
       </ul>
-    </header>
-  </main>
-  <script src="../script/home.js"></script>
-</body>
-
+      <div>
+        <button onclick="logout()" class="logout-button">
+          <img src="../img/logout.svg" alt="" class="logout" />
+        </button>
+      </div>
+    </div>
+    <main class="content">
+      <header class="header">
+        <a href="../index.html" class="logo">Japa impactante</a>
+        <ul class="username">
+          <li class="username option-active">
+            <a id="username-display"></a>
+          </li>
+        </ul>
+      </header>
+    </main>
+    <script src="../script/home.js"></script>
+  </body>
 </html>

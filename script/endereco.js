@@ -1,12 +1,11 @@
-function verification_login(){
-  if('token' in localStorage){
-      let status = true
-  }else{
-      let status = false
-      window.location.href = "./login.html"
+function verification_login() {
+  if ('token' in localStorage) {
+    let status = true;
+  } else {
+    let status = false;
+    window.location.href = './login.html';
   }
 }
-
 
 function criar_card_endereco(endereco) {
   const linhaNovoItem = document.createElement('li');
@@ -29,7 +28,9 @@ function criar_card_endereco(endereco) {
                             <button>
                                 <img src="../img/lixo.svg" alt="">
                             </button>
-                            <button onclick="redirecionar_para_atualizacao(${endereco.id})">
+                            <button onclick="redirecionar_para_atualizacao(${
+                              endereco.id
+                            })">
                                 <img src="../img/edit.svg" alt="">                          
                             </button>
                         </div>
@@ -59,7 +60,6 @@ async function carregar_enderecos() {
   const list_address = document.querySelector('.list_address');
 
   try {
-    console.log('Iniciando chamada à API...');
     spinner.style.display = 'block';
     const token = JSON.parse(localStorage.getItem('token'));
     const resposta = await fetch(
@@ -72,18 +72,15 @@ async function carregar_enderecos() {
     );
 
     if (!resposta.ok) {
-      console.error('Resposta não ok:', resposta.status, resposta.statusText);
       throw new Error(`Erro ao carregar endereços: ${resposta.status}`);
     }
     const resultado = await resposta.json();
     const enderecos = resultado.data;
-    console.log('Dados recebidos da API:', enderecos);
 
     for (const endereco of enderecos) {
       list_address.appendChild(criar_card_endereco(endereco));
     }
   } catch (error) {
-    console.error('Erro completo:', error);
     list_address.innerHTML = `<div class="Error">Erro ao carregar endereços: ${error.message}</div>`;
   } finally {
     spinner.style.display = 'none';
@@ -91,10 +88,14 @@ async function carregar_enderecos() {
 }
 
 carregar_enderecos();
+
 function redirecionar_para_atualizacao(id_endereco) {
-  const url = new URL('../view/atualizar_endereco.html', window.location.origin);
+  const url = new URL(
+    '../view/atualizar_endereco.html',
+    window.location.origin
+  );
   const params = new URLSearchParams(url.search);
   params.append('id_endereco', id_endereco);
   url.search = params.toString();
-  window.location.href=url
+  window.location.href = url;
 }

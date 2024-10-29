@@ -1,82 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/cadastro-endereco.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/header.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../css/cadastro-endereco.css" />
-  <link rel="stylesheet" href="../css/home.css" />
-  <link rel="stylesheet" href="../css/header.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cadastrar Endereço</title>
+  </head>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
-  <script src="../script/cadastro-endereco.js"></script>
-  <title>Cadastrar Endereço</title>
-</head>
-
-<body onload="verification_login()">
-  <div class="sidebar">
-    <ul>
-      <li href="#">
-        <a href="./endereco.html">
-          <img src="../img/list.svg" alt="" class="list-sidebar">
-        </a>
-      </li>
-      <li href="#">
-        <a href="./home.html">
-          <img src="../img/create_address.svg" alt="" class="create-address">
-        </a>
-      </li>
-    </ul>
-  </div>
-  <main class="content">
-    <header class="header">
-      <a href="../index.html" class="logo">Japa impactante</a>
-    </header>
-    <form class="form" id="myForm">
-      <div class="form-header">
-        <p>Cadastre um endereço</p>
-      </div>
-      <div class="form-container">
-        <div class="boxField">
-          <label for>Nome do endereço</label>
-          <input type="text" id="name" />
-          <p class="error" id="nameError"></p>
-        </div>
-        <hr>
-        <div class="boxField">
-          <label for>Cep</label>
-          <input type="text" id="cep" class="cep-input" />
-          <p class="error" id="cepError"></p>
-        </div>
-        <div class="boxField">
-          <label for>Endereço</label>
-          <input type="text" id="endereco" />
-          <p class="error" id="enderecoError"></p>
-        </div>
-        <div class="inline-fields">
-          <div class="boxField">
-            <label for>Número</label>
-            <input type="text" id="numero" />
-            <p class="error" id="numeroError"></p>
+  <body onload="verification_login()">
+    <div class="sidebar">
+      <ul>
+        <li href="#">
+          <a href="./endereco.html">
+            <img src="../img/list.svg" alt="" class="list-sidebar" />
+          </a>
+        </li>
+        <li href="#">
+          <a href="./home.html">
+            <img
+              src="../img/create_address.svg"
+              alt=""
+              class="create-address"
+            />
+          </a>
+        </li>
+      </ul>
+    </div>
+    <main class="content">
+      <header class="header">
+        <a href="../index.html" class="logo">Japa impactante</a>
+      </header>
+      <div class="container">
+        <form class="form" id="myForm">
+          <div class="form-header">
+            <p>Cadastre um endereço</p>
           </div>
-          <div class="boxField">
-            <label for>Complemento</label>
-            <input type="text" id="complemento" />
+          <div class="form-container">
+            <div class="boxField">
+              <label for>Nome do endereço</label>
+              <input type="text" id="name" />
+              <p class="error" id="nameError"></p>
+            </div>
+            <hr />
+            <div class="boxField">
+              <label for>Cep</label>
+              <input type="text" id="cep" class="cep-input" />
+              <p class="error" id="cepError"></p>
+            </div>
+            <div class="boxField">
+              <label for>Endereço</label>
+              <input type="text" id="endereco" />
+              <p class="error" id="enderecoError"></p>
+            </div>
+            <div class="inline-fields">
+              <div class="boxField">
+                <label for>Número</label>
+                <input type="text" id="numero" />
+                <p class="error" id="numeroError"></p>
+              </div>
+              <div class="boxField">
+                <label for>Complemento</label>
+                <input type="text" id="complemento" />
+              </div>
+            </div>
+            <button
+              class="submitButton"
+              id="submitButton"
+              type="button"
+              onclick="cadastrar_endereco()"
+            >
+              <span id="submitText">Cadastrar</span>
+              <span class="loader" id="loader"></span>
+            </button>
           </div>
-        </div>
-        <button class="submitButton" id="submitButton" type="button" onclick="cadastrar_endereco()">
-          <span id="submitText">Cadastrar</span>
-          <span class="loader" id="loader"></span>
-        </button>
+        </form>
       </div>
-    </form>
-  </main>
-</body>
-
+    </main>
+    <script src="../script/cadastro-endereco.js"></script>
+  </body>
 </html>

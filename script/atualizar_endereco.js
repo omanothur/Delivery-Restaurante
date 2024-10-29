@@ -1,24 +1,27 @@
+const id_endereco = new URLSearchParams(window.location.search).get(
+  'id_endereco'
+);
 
 async function carregarDadosEndereco() {
-  const id_endereco = new URLSearchParams(window.location.search).get('id_endereco');
   const Url = `https://go-wash-api.onrender.com/api/auth/address/${id_endereco}`;
   const token = JSON.parse(localStorage.getItem('token'));
-  console.log(window.location.search)
+  console.log(window.location.search);
   try {
     const resposta = await fetch(Url, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
-      }
+      },
     });
 
     if (resposta.ok) {
-      const dados = await resposta.json();
-      document.getElementById('name').value = dados.title;
-      document.getElementById('cep').value = dados.cep;
-      document.getElementById('endereco').value = dados.address;
-      document.getElementById('numero').value = dados.number;
-      document.getElementById('complemento').value = dados.complement || '';
+      const { data } = await resposta.json();
+
+      document.getElementById('name').value = data.title;
+      document.getElementById('cep').value = data.cep;
+      document.getElementById('endereco').value = data.address;
+      document.getElementById('numero').value = data.number;
+      document.getElementById('complemento').value = data.complement || '';
     } else {
       alert('Erro ao carregar os dados:', resposta.statusText);
     }
@@ -27,20 +30,20 @@ async function carregarDadosEndereco() {
   }
 }
 
-async function atualizar_endereco(id) {
-  const Url = `https://go-wash-api.onrender.com/api/auth/address/${id}`;
-  
+async function atualizar_endereco() {
+  const Url = `https://go-wash-api.onrender.com/api/auth/address/${id_endereco}`;
+
   let Name = document.getElementById('name');
   let Cep = document.getElementById('cep');
   let Endereco = document.getElementById('endereco');
   let Numero = document.getElementById('numero');
   let Complemento = document.getElementById('complemento');
-  
+
   const fieldErrors = checkFields(Name, Cep, Endereco, Numero, Complemento);
   if (fieldErrors.hasError) {
     return;
   }
-  
+
   let dados = {
     title: Name.value,
     cep: Cep.value,
@@ -48,26 +51,26 @@ async function atualizar_endereco(id) {
     number: Numero.value,
     complement: Complemento.value || undefined,
   };
-  
+
   const headers = {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
   };
-  
+
   loader.classList.add('show');
   submitText.classList.add('invisible');
   submitButton.disabled = true;
-  
+
   const requisicao = await fetch(Url, {
-    method: 'POST', 
+    method: 'POST',
     headers: headers,
     body: JSON.stringify(dados),
   });
-  
+
   loader.classList.remove('show');
   submitText.classList.remove('invisible');
   submitButton.disabled = false;
-  
+
   if (requisicao.ok) {
     alert('Endereço atualizado com sucesso!');
     window.location.href = '../view/endereco.html';
