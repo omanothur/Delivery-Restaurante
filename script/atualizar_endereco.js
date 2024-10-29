@@ -1,3 +1,9 @@
+function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("userData");
+  window.location.href = "../index.html";
+}
+
 const id_endereco = new URLSearchParams(window.location.search).get(
   'id_endereco'
 );

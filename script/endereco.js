@@ -1,3 +1,9 @@
+function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("userData");
+  window.location.href = "../index.html";
+}
+
 function verification_login() {
   if ('token' in localStorage) {
     let status = true;
