@@ -123,3 +123,33 @@ details[open] summary .setinha {
         transform: rotate(360deg);
     }
 }
+
+.spinnerDelete {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: none;
+    border-top: 3px solid #E36969;
+    border-right: 3px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .show {
+    display: inline-block;
+  }
+  
+  .invisible {
+    display: none;
+  }
+  

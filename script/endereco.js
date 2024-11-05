@@ -31,10 +31,13 @@ function criar_card_endereco(endereco) {
                             <span>${endereco.address || 'N/A'}</span>
                         </div>
                         <div class="buttons-container">
-                            <button>
-                                <img src="../img/lixo.svg" alt="">
+                            <button id="delete-${endereco.id}" onclick="deleteAdress(${
+                              endereco.id
+                            })">
+                                <img src="../img/lixo.svg" alt="" class="lixeira">
                             </button>
-                            <button onclick="redirecionar_para_atualizacao(${
+                            <div id="spinner-${endereco.id}" class="spinnerDelete" style="display:none;"></div>
+                            <button id="update-${endereco.id}" onclick="redirecionar_para_atualizacao(${
                               endereco.id
                             })">
                                 <img src="../img/edit.svg" alt="">                          
@@ -99,4 +102,38 @@ function redirecionar_para_atualizacao(id_endereco) {
   const url = `../view/atualizar_endereco.html?id_endereco=${id_endereco}`
 
   window.location.href = url;
+}
+
+async function deleteAdress(id_endereco){
+  const Url = `https://go-wash-api.onrender.com/api/auth/address/${id_endereco}`
+  const token = JSON.parse(localStorage.getItem('token'))
+
+  const button = document.getElementById(`delete-${id_endereco}`);
+  const spinner = document.getElementById(`spinner-${id_endereco}`);
+  const updateButton = document.getElementById(`update-${id_endereco}`);
+
+  const lixeira = button.querySelector('img.lixeira'); 
+  lixeira.style.display = 'none';
+  spinner.style.display = 'inline-block';
+
+  updateButton.disabled = true
+
+  
+  const resposta = await fetch(Url, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    }
+  });
+
+  updateButton.disabled = false;
+
+  if (resposta.ok){
+    spinner.style.display = 'none'; lixeira.style.display = 'inline-block';
+    alert('Endereço deletado com sucesso!')
+    window.location.href = '../view/endereco.html';
+  } else{
+    alert('Erro ao deletar o endereço:', resposta.statusText)
+  }
 }
