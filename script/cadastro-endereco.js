@@ -5,12 +5,12 @@ function logout() {
 }
 
 function verification_login() {
-  if ('token' in localStorage) {
-    let status = true;
+  const token = localStorage.getItem("token")
+
+  if (token) {
     const form = document.getElementById('myForm');
     form.classList.add('show');
   } else {
-    let status = false;
     window.location.href = './login.html';
   }
 }

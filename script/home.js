@@ -1,9 +1,8 @@
 
 function verification_login(){
-    if('token' in localStorage){
-        let status = true
-    }else{
-        let status = false
+  const token = localStorage.getItem("token")
+    
+    if(!token){
         window.location.href = "./login.html"
     }
 }
